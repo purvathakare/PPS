@@ -1,0 +1,16 @@
+d1 = int(input("digit1 (0-9): "))
+d2 = int(input("digit2 (0-9): "))
+d3 = int(input("digit3 (0-9): "))
+if 0 <= d1 <= 9 and 0 <= d2 <= 9 and 0 <= d3 <= 9:
+	combination = [
+	f"{d1}{d2}{d3}",
+	f"{d1}{d3}{d2}",
+	f"{d2}{d1}{d3}",
+	f"{d2}{d3}{d1}",
+	f"{d3}{d1}{d2}",
+	f"{d3}{d2}{d1}",
+]
+	for combo in combination:
+		print(combo)
+else:
+	print("Invalid")
