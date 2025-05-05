@@ -1,0 +1,43 @@
+def get_matrix(name):
+	print(f'Enter values for matrix - {name}')
+	rows = int(input('Number of rows, m = '))
+	cols = int(input('Number of columns, n = '))
+	matrix = []
+	for i in range(rows):
+		row = []
+		for j in range(cols):
+			val = int(input(f"Entry in row: {i+1} column: {j+1}\n"))
+			row.append(val)
+		matrix.append(row)
+	return matrix, rows, cols
+
+def multiply_matrices(A, B):
+	A_matrix, A_rows, A_cols = A
+	B_matrix, B_rows, B_cols = B
+
+	if A_cols != B_rows:
+		print("Cannot multiply the two matrices. Incorrect dimensions.")
+		print("Matrix - A * Matrix- B = None")
+		return
+
+	result = [[0 for _ in range(B_cols)] for _ in range(A_rows)]
+
+	for i in range(A_rows):
+		for j in range(B_cols):
+			for k in range(A_cols):
+				result[i][j] += A_matrix[i][k] * B_matrix[k][j]
+
+	print(f"Matrix - A = {A_matrix}")
+	print(f"Matrix - B = {B_matrix}")
+	print(f"Matrix - A * Matrix- B = {result}")
+
+A = get_matrix('A')
+B = get_matrix('B')
+
+if A[2] == B[1]:
+	multiply_matrices(A, B)
+else:
+	print(f"Matrix - A = {A[0]}")
+	print(f"Matrix - B = {B[0]}")
+	print("Cannot multiply the two matrices. Incorrect dimensions.")
+	print("Matrix - A * Matrix- B = None")
